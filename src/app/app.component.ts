@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { CART } from './cart'
-import { getDiscountAmount, getDiscountedPrice, getPrice, getVAT } from './cart-utils'
-import { CartItem } from './cart-item.entity'
+import { getVAT } from './cart-utils'
+import { CartItem } from './components/cart-item/cart-item.entity'
 
 @Component({
   selector: 'app-root',
@@ -11,12 +11,7 @@ import { CartItem } from './cart-item.entity'
 export class AppComponent {
   items = CART
   vat = getVAT('IT')
-  getItemPrice(item: CartItem) {
-    const discountedPrice = getDiscountedPrice(item.netPrice, item.discount)
-    return getPrice(discountedPrice * item.quantity, this.vat).toFixed(2)
-  }
-
-  getDiscountAmount(item: CartItem) {
-    return getDiscountAmount(item.netPrice, item.discount) * item.quantity
+  changeQuantity(item: CartItem, newQuantity: number) {
+    item.quantity = newQuantity
   }
 }

@@ -1,4 +1,4 @@
-import { CartItem } from './cart-item.entity'
+import { CartItem } from './components/cart-item/cart-item.entity'
 
 export const CART: CartItem[] = [
   {
