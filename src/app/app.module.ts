@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from '@angular/forms'
-import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component'
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component'
 
 @NgModule({

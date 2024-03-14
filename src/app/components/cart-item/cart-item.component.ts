@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { CartItem } from './cart-item.entity'
-import { getDiscountAmount, getDiscountedPrice, getPrice, getVAT } from '../../cart-utils'
+import { getDiscountAmount, getDiscountedPrice, getPrice } from '../../cart-utils'
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
-  styleUrl: './cart-item.component.css'
+  styleUrl: './cart-item.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartItemComponent {
   @Input()
@@ -19,7 +20,7 @@ export class CartItemComponent {
 
   getItemPrice(item: CartItem) {
     const discountedPrice = getDiscountedPrice(item.netPrice, item.discount)
-    return getPrice(discountedPrice * item.quantity, this.vat).toFixed(2)
+    return getPrice(discountedPrice * item.quantity, this.vat)
   }
 
   getDiscountAmount(item: CartItem) {

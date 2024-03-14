@@ -10,7 +10,9 @@ import { CartItem } from './components/cart-item/cart-item.entity'
 })
 export class AppComponent {
   items = CART
+
   vat = getVAT('IT')
+
   changeQuantity(item: CartItem, newQuantity: number) {
     item.quantity = newQuantity
   }
