@@ -12,6 +12,7 @@ export class AppComponent {
   items = CART
 
   vat = getVAT('IT')
+  title: string = 'angular-cart'
 
   changeQuantity(item: CartItem, newQuantity: number) {
     item.quantity = newQuantity
