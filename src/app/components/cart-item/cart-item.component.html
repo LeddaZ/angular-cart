@@ -13,8 +13,9 @@
         style="width: 70px" />
     </span>
     <span class="ms-2">
-      <span class="item-price">{{ getItemPrice(item) }}€ </span>
-      <span class="item-discount">(-{{ getDiscountAmount(item) }}€)</span>
+      <span class="item-price">Price: €{{ getItemPrice(item).toFixed(2) }}</span>
+      <br />
+      <span class="item-discount">Discount: (-€{{ getDiscountAmount(item).toFixed(2) }})</span>
     </span>
   </div>
 </div>
