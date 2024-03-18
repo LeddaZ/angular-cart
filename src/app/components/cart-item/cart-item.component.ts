@@ -5,7 +5,6 @@ import { getDiscountAmount, getDiscountedPrice, getPrice } from '../../cart-util
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
-  styleUrl: './cart-item.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartItemComponent {

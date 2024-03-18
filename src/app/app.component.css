@@ -1,0 +1,12 @@
+.container {
+  background-color: #1e1e2e;
+}
+
+.list-group-item {
+  background-color: #313244;
+}
+
+.container,
+.list-group-item {
+  color: #cdd6f4;
+}

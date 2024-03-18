@@ -5,7 +5,6 @@ import { getTransportFee, parseItem } from '../../cart-utils'
 @Component({
   selector: 'app-cart-summary',
   templateUrl: './cart-summary.component.html',
-  styleUrl: './cart-summary.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartSummaryComponent implements OnChanges {
