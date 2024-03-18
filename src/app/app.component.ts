@@ -14,7 +14,14 @@ export class AppComponent {
   vat = getVAT('IT')
   title: string = 'angular-cart'
 
+  trackById(_: number, item: CartItem) {
+    return item.id
+  }
+
   changeQuantity(item: CartItem, newQuantity: number) {
-    item.quantity = newQuantity
+    const index = this.items.indexOf(item)
+    const tmp = structuredClone(this.items)
+    tmp[index].quantity = newQuantity
+    this.items = tmp
   }
 }
