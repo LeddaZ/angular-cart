@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
-import { CART } from './cart'
 import { getVAT } from './cart-utils'
 import { CartItem } from './components/cart-item/cart-item.entity'
+import { CartSourceService } from './services/cart-source.service'
 
 @Component({
   selector: 'app-root',
@@ -9,19 +9,18 @@ import { CartItem } from './components/cart-item/cart-item.entity'
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  items = CART
+  items$ = this.cartSrv.items$
 
   vat = getVAT('IT')
   title: string = 'angular-cart'
+
+  constructor(private cartSrv: CartSourceService) {}
 
   trackById(_: number, item: CartItem) {
     return item.id
   }
 
   changeQuantity(item: CartItem, newQuantity: number) {
-    const index = this.items.indexOf(item)
-    const tmp = structuredClone(this.items)
-    tmp[index].quantity = newQuantity
-    this.items = tmp
+    this.cartSrv.setQuantity(item.id, newQuantity)
   }
 }

@@ -8,6 +8,8 @@
         [ngModel]="item.quantity"
         (ngModelChange)="quantityChange($event)"
         type="number"
+        min="0"
+        oninput="validity.valid||(value='');"
         style="width: 70px" />
     </span>
     <span class="ms-2">

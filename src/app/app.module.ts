@@ -10,6 +10,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import localeIt from '@angular/common/locales/it'
 import { CurrencyPipe, registerLocaleData } from '@angular/common'
 import { DiscountAmountPipe } from './pipes/discount-amount.pipe'
+import { CartSourceService } from './services/cart-source.service'
 registerLocaleData(localeIt)
 
 @NgModule({
@@ -18,7 +19,8 @@ registerLocaleData(localeIt)
   providers: [
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
     { provide: LOCALE_ID, useValue: 'it' },
-    CurrencyPipe
+    CurrencyPipe,
+    CartSourceService
   ],
   bootstrap: [AppComponent]
 })
