@@ -6,7 +6,7 @@
       <li class="list-group-item item" *ngFor="let item of items$ | async; trackBy: trackById">
         <app-cart-item
           [item]="item"
-          [vat]="vat"
+          [vat]="vat$ | async"
           (onQuantityChange)="changeQuantity(item, $event)"></app-cart-item>
       </li>
     </ul>
@@ -15,7 +15,7 @@
   <div class="mt-5">
     <h3>Order summary</h3>
     <div class="order-summary">
-      <app-cart-summary [items]="items$ | async" [vat]="vat"></app-cart-summary>
+      <app-cart-summary [items]="items$ | async" [vat]="vat$ | async"></app-cart-summary>
     </div>
   </div>
 </div>
