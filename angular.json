@@ -67,10 +67,10 @@
             },
             "development": {
               "buildTarget": "angular-cart:build:development"
-            },
-            "options": {
-              "proxyConfig": "proxy.conf.json"
             }
+          },
+          "options": {
+            "proxyConfig": "./proxy.conf.json"
           },
           "defaultConfiguration": "development"
         },
