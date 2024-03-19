@@ -1,6 +1,16 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core'
 import { CartItem } from '../../entities/cart-item.entity'
-import { getDiscountAmount, getDiscountedPrice, getPrice } from '../../cart-utils'
+import {
+  getDiscountAmount,
+  getDiscountedPrice,
+  getPrice
+} from '../../cart-utils'
 
 @Component({
   selector: 'app-cart-item',
@@ -22,12 +32,18 @@ export class CartItemComponent {
   onQuantityChange = new EventEmitter<number>()
 
   getItemPrice(item: CartItem) {
-    const discountedPrice = getDiscountedPrice(item.product.netPrice, item.product.discount)
+    const discountedPrice = getDiscountedPrice(
+      item.product.netPrice,
+      item.product.discount
+    )
     return getPrice(discountedPrice * item.quantity, this._vat)
   }
 
   getDiscountAmount(item: CartItem) {
-    return getDiscountAmount(item.product.netPrice, item.product.discount) * item.quantity
+    return (
+      getDiscountAmount(item.product.netPrice, item.product.discount) *
+      item.quantity
+    )
   }
 
   quantityChange(newQuantity: number) {

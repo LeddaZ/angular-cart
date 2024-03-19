@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core'
 import { CartItem } from '../../entities/cart-item.entity'
 import { getTransportFee, parseItem } from '../../cart-utils'
 

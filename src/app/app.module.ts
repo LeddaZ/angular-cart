@@ -23,7 +23,13 @@ registerLocaleData(localeIt)
     CartSummaryComponent,
     DiscountAmountPipe
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    NgbModule,
+    HttpClientModule
+  ],
   providers: [
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
     { provide: LOCALE_ID, useValue: 'it' },

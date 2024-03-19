@@ -37,9 +37,11 @@ export function getTransportFee(weight: number) {
 
 export function parseItem(item: CartItem, vat: number) {
   let discountAmount =
-    getDiscountAmount(item.product.netPrice, item.product.discount) * item.quantity
+    getDiscountAmount(item.product.netPrice, item.product.discount) *
+    item.quantity
   let discountedPrice =
-    getDiscountedPrice(item.product.netPrice, item.product.discount) * item.quantity
+    getDiscountedPrice(item.product.netPrice, item.product.discount) *
+    item.quantity
 
   let vatAmount = getVatAmount(discountedPrice, vat)
   let price = getPrice(discountedPrice, vat)

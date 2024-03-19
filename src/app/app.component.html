@@ -3,7 +3,9 @@
   <div id="items-list-container">
     <h3>Your items</h3>
     <ul class="list-group" id="items-list">
-      <li class="list-group-item item" *ngFor="let item of items$ | async; trackBy: trackById">
+      <li
+        class="list-group-item item"
+        *ngFor="let item of items$ | async; trackBy: trackById">
         <app-cart-item
           [item]="item"
           [vat]="vat$ | async"
@@ -15,7 +17,9 @@
   <div class="mt-5">
     <h3>Order summary</h3>
     <div class="order-summary">
-      <app-cart-summary [items]="items$ | async" [vat]="vat$ | async"></app-cart-summary>
+      <app-cart-summary
+        [items]="items$ | async"
+        [vat]="vat$ | async"></app-cart-summary>
     </div>
   </div>
 </div>
