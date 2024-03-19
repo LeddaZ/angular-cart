@@ -12,6 +12,7 @@ import { CurrencyPipe, registerLocaleData } from '@angular/common'
 import { DiscountAmountPipe } from './pipes/discount-amount.pipe'
 import { CartSourceService } from './services/cart-source.service'
 import { AppHeaderComponent } from './components/header/header.component'
+import { HttpClientModule } from '@angular/common/http'
 registerLocaleData(localeIt)
 
 @NgModule({
@@ -22,7 +23,7 @@ registerLocaleData(localeIt)
     CartSummaryComponent,
     DiscountAmountPipe
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule, HttpClientModule],
   providers: [
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
     { provide: LOCALE_ID, useValue: 'it' },
