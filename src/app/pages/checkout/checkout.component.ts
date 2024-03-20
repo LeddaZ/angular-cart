@@ -6,8 +6,7 @@ import { VatService } from '../../services/vat.service'
 
 @Component({
   selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.css'
+  templateUrl: './checkout.component.html'
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
   items$ = this.cartSrv.items$
