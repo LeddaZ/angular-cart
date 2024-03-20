@@ -3,3 +3,13 @@
 * {
   font-family: 'Figtree', sans-serif;
 }
+
+body {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+}
+
+::selection {
+  color: black;
+  background: #a6e3a1;
+}

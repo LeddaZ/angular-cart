@@ -1,0 +1,22 @@
+.btn-primary {
+  background-color: #f9e2af;
+  border-color: #f9e2af;
+  color: black;
+}
+
+.btn-primary:hover {
+  background-color: #a6e3a1;
+  border-color: #a6e3a1;
+}
+
+.form-control {
+  background-color: #45475a;
+  border-color: #a6adc8;
+  border-radius: 5px;
+  border-style: solid;
+  color: #cdd6f4;
+}
+
+::placeholder {
+  color: #9399b2;
+}
