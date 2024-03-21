@@ -5,6 +5,7 @@ import { debounceTime, map, takeUntil } from 'rxjs/operators'
 import { ActivatedRoute, Router } from '@angular/router'
 import { isNil, omitBy } from 'lodash'
 import { Product } from '../../entities/product.entity'
+import { CartSourceService } from '../../services/cart-source.service'
 
 @Component({
   selector: 'app-products',
@@ -25,6 +26,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   constructor(
     protected productSrv: ProductService,
+    protected cartSrv: CartSourceService,
     protected router: Router,
     protected activatedRoute: ActivatedRoute
   ) {}
@@ -51,5 +53,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   applyFilters(value: ProductFilters) {
     this.updateQueryParams$.next(value)
+  }
+
+  addItem(item: [string, number]) {
+    this.cartSrv.add(item[0], item[1])
   }
 }

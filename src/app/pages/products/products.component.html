@@ -7,7 +7,9 @@
         (filterChange)="applyFilters($event)"></app-product-filters>
       <div class="row row-cols-1 row-cols-md-4 g-6 mt-5">
         <div class="col" *ngFor="let product of products$ | async">
-          <app-item-card [product]="product"></app-item-card>
+          <app-item-card
+            [product]="product"
+            (addToCart)="addItem($event)"></app-item-card>
         </div>
       </div>
     </div>

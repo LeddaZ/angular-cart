@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Product } from '../../entities/product.entity'
 import { CartSourceService } from '../../services/cart-source.service'
 
@@ -10,9 +10,11 @@ import { CartSourceService } from '../../services/cart-source.service'
 export class ItemCardComponent {
   @Input() product!: Product
 
+  @Output() addToCart = new EventEmitter<[string, number]>()
+
   constructor(protected cartSourceSrv: CartSourceService) {}
 
-  addItem() {
-    this.cartSourceSrv.add(this.product.id, 20)
+  addItem(id: string, quantity: number) {
+    this.addToCart.emit([id, quantity])
   }
 }
