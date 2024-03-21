@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core'
 import { Product } from '../../entities/product.entity'
+import { CartSourceService } from '../../services/cart-source.service'
 
 @Component({
   selector: 'app-item-card',
@@ -8,4 +9,10 @@ import { Product } from '../../entities/product.entity'
 })
 export class ItemCardComponent {
   @Input() product!: Product
+
+  constructor(protected cartSourceSrv: CartSourceService) {}
+
+  addItem() {
+    this.cartSourceSrv.add(this.product.id, 20)
+  }
 }
