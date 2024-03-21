@@ -14,8 +14,11 @@
       min="1"
       oninput="validity.valid||(value='');"
       class="product-card-quantity"
+      [(ngModel)]="qty"
+      (ngModelChange)="checkQuantity()"
       #quantity />
     <button
+      [disabled]="invalid"
       class="btn btn-link"
       (click)="addItem(product.id, quantity.valueAsNumber)">
       Add

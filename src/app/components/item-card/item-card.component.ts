@@ -12,9 +12,20 @@ export class ItemCardComponent {
 
   @Output() addToCart = new EventEmitter<[string, number]>()
 
+  qty: number = 0
+  invalid: boolean = false
+
   constructor(protected cartSourceSrv: CartSourceService) {}
 
   addItem(id: string, quantity: number) {
     this.addToCart.emit([id, quantity])
+  }
+
+  checkQuantity() {
+    if (!this.qty) {
+      this.invalid = true
+    } else {
+      this.invalid = false
+    }
   }
 }
