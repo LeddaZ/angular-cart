@@ -15,7 +15,9 @@ export class CartSourceService {
   add(id: string, quantity: number) {
     return this.http
       .post<CartItem>(`/api/cart-items/`, { productId: id, quantity: quantity })
-      .subscribe((updated) => {})
+      .subscribe((_updated) => {
+        this.fetch()
+      })
   }
 
   setQuantity(id: string, quantity: number) {
