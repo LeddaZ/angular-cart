@@ -1,0 +1,8 @@
+<div class="side-cart">
+  <h4>Cart</h4>
+  <ul class="list-group" id="items-list">
+    <li class="list-group-item item" *ngFor="let item of items$ | async">
+      <app-cart-item [item]="item" [vat]="vat$ | async"></app-cart-item>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+.item-name {
+  font-weight: 500;
+}
+
+.card-footer {
+  background-color: #313244;
+  color: #cdd6f4;
+}
+
+.btn-link {
+  color: #f9e2af;
+  font-weight: bold;
+  text-decoration: none;
+  transition:
+    color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+.btn-link:hover {
+  color: #a6e3a1;
+}

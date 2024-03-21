@@ -15,6 +15,7 @@ import {
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
+  styleUrl: './cart-item.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartItemComponent {
@@ -30,6 +31,9 @@ export class CartItemComponent {
 
   @Output()
   onQuantityChange = new EventEmitter<number>()
+
+  @Output()
+  onRemove = new EventEmitter<string>()
 
   getItemPrice(item: CartItem) {
     const discountedPrice = getDiscountedPrice(
@@ -48,5 +52,9 @@ export class CartItemComponent {
 
   quantityChange(newQuantity: number) {
     this.onQuantityChange.emit(newQuantity)
+  }
+
+  removeItem(id: string) {
+    this.onRemove.emit(id)
   }
 }
