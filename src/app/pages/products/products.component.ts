@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ProductFilters, ProductService } from '../../services/product.service'
-import { ReplaySubject, Subject, startWith, switchMap } from 'rxjs'
+import { ReplaySubject, Subject } from 'rxjs'
 import { debounceTime, map, takeUntil } from 'rxjs/operators'
 import { ActivatedRoute, Router } from '@angular/router'
 import { isNil, omitBy } from 'lodash'
+import { Product } from '../../entities/product.entity'
 
 @Component({
   selector: 'app-products',
@@ -12,14 +13,12 @@ import { isNil, omitBy } from 'lodash'
 })
 export class ProductsComponent implements OnInit, OnDestroy {
   protected updateQueryParams$ = new ReplaySubject<ProductFilters>()
-  filters$ = this.activatedRoute.queryParams
+  filters$ = this.activatedRoute.data.pipe(
+    map(({ filters }) => filters as ProductFilters)
+  )
 
-  products$ = this.filters$.pipe(
-    startWith<ProductFilters>({}),
-    debounceTime(150),
-    switchMap((filters) => {
-      return this.productSrv.list(filters)
-    })
+  products$ = this.activatedRoute.data.pipe(
+    map(({ products }) => products as Product[])
   )
 
   protected destroyed$ = new Subject<void>()
@@ -35,13 +34,14 @@ export class ProductsComponent implements OnInit, OnDestroy {
       .pipe(
         takeUntil(this.destroyed$),
         map((filters) => omitBy(filters, isNil)),
-        map((filters) => omitBy(filters, (val) => val === ''))
+        map((filters) => omitBy(filters, (val) => val === '')),
+        debounceTime(150)
       )
       .subscribe((filters) => {
         this.router.navigate([], { queryParams: filters })
       })
 
-    this.activatedRoute.queryParams.subscribe((val) => console.log(val))
+    this.activatedRoute.data.subscribe((data) => console.log(data))
   }
 
   ngOnDestroy(): void {
