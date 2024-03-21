@@ -16,6 +16,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component'
 import { ProductsComponent } from './pages/products/products.component'
 import { ProductFiltersComponent } from './components/product-filters/product-filters.component'
 import { FooterComponent } from './components/footer/footer.component'
+import { ItemCardComponent } from './components/item-card/item-card.component'
 registerLocaleData(localeIt)
 
 @NgModule({
@@ -28,7 +29,8 @@ registerLocaleData(localeIt)
     CheckoutComponent,
     ProductsComponent,
     ProductFiltersComponent,
-    FooterComponent
+    FooterComponent,
+    ItemCardComponent
   ],
   imports: [
     BrowserModule,

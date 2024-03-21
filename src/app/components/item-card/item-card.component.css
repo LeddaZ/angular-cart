@@ -1,0 +1,43 @@
+.card-body {
+  background-color: #1e1e2e;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.card-footer {
+  background-color: #313244;
+}
+
+.card-body,
+.card-footer,
+.product-card-quantity {
+  color: #cdd6f4;
+}
+
+.card-subtitle {
+  color: #bac2de;
+}
+
+.card {
+  border-color: #a6adc8;
+}
+
+.btn-link {
+  color: #f9e2af;
+  font-weight: bold;
+  text-decoration: none;
+  transition:
+    color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+.btn-link:hover {
+  color: #a6e3a1;
+}
+
+.product-card-quantity {
+  background-color: #45475a;
+  border-color: #a6adc8;
+  border-radius: 5px;
+  border-style: solid;
+  width: 80px;
+}

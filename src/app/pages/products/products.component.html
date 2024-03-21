@@ -7,20 +7,7 @@
         (filterChange)="applyFilters($event)"></app-product-filters>
       <div class="row row-cols-1 row-cols-md-4 g-6 mt-5">
         <div class="col" *ngFor="let product of products$ | async">
-          <div class="card mt-2">
-            <div class="card-body">
-              <h5 class="card-title">{{ product.name }}</h5>
-              <h6 class="card-subtitle mb-2">
-                {{ product.netPrice | currency }}
-              </h6>
-              <p class="card-text">{{ product.description }}</p>
-              <a href="#" class="btn btn-link">Details</a>
-            </div>
-            <div class="card-footer text-muted text-end">
-              <input type="number" value="1" class="product-card-quantity" />
-              <button class="btn btn-link">Add</button>
-            </div>
-          </div>
+          <app-item-card [product]="product"></app-item-card>
         </div>
       </div>
     </div>
