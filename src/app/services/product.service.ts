@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Product } from '../entities/product.entity'
 import { isNil, omitBy } from 'lodash'
+import { environment } from '../../environments/environment'
 
 export interface ProductFilters {
   name?: string | null
@@ -17,6 +18,6 @@ export class ProductService {
 
   list(filters: ProductFilters) {
     const q = omitBy(filters, isNil)
-    return this.http.get<Product[]>('/api/products', { params: q })
+    return this.http.get<Product[]>(`${environment.apiUrl}/api/products`, { params: q })
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 import { CartItem } from '../entities/cart-item.entity'
 import { HttpClient } from '@angular/common/http'
+import { environment } from '../../environments/environment'
 
 @Injectable()
 export class CartSourceService {
@@ -14,7 +15,7 @@ export class CartSourceService {
 
   add(id: string, quantity: number) {
     return this.http
-      .post<CartItem>(`/api/cart-items/`, { productId: id, quantity: quantity })
+      .post<CartItem>(`${environment.apiUrl}/api/cart-items/`, { productId: id, quantity: quantity })
       .subscribe((_updated) => {
         this.fetch()
       })
@@ -22,7 +23,7 @@ export class CartSourceService {
 
   setQuantity(id: string, quantity: number) {
     this.http
-      .patch<CartItem>(`/api/cart-items/${id}`, { quantity })
+      .patch<CartItem>(`${environment.apiUrl}/api/cart-items/${id}`, { quantity })
       .subscribe((updated) => {
         const index = this._items$.value.findIndex((item) => item.id === id)
         const tmp = structuredClone(this._items$.value)
@@ -32,7 +33,7 @@ export class CartSourceService {
   }
 
   fetch() {
-    this.http.get<CartItem[]>('/api/cart-items').subscribe((items) => {
+    this.http.get<CartItem[]>(`${environment.apiUrl}/api/cart-items`).subscribe((items) => {
       this._items$.next(items)
     })
   }
