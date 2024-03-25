@@ -15,7 +15,18 @@ export class CartSourceService {
 
   add(id: string, quantity: number) {
     return this.http
-      .post<CartItem>(`${environment.apiUrl}/api/cart-items/`, { productId: id, quantity: quantity })
+      .post<CartItem>(`${environment.apiUrl}/api/cart-items/`, {
+        productId: id,
+        quantity: quantity
+      })
+      .subscribe((_updated) => {
+        this.fetch()
+      })
+  }
+
+  remove(id: string) {
+    return this.http
+      .delete<CartItem>(`${environment.apiUrl}/api/cart-items/${id}`)
       .subscribe((_updated) => {
         this.fetch()
       })
@@ -23,7 +34,9 @@ export class CartSourceService {
 
   setQuantity(id: string, quantity: number) {
     this.http
-      .patch<CartItem>(`${environment.apiUrl}/api/cart-items/${id}`, { quantity })
+      .patch<CartItem>(`${environment.apiUrl}/api/cart-items/${id}`, {
+        quantity
+      })
       .subscribe((updated) => {
         const index = this._items$.value.findIndex((item) => item.id === id)
         const tmp = structuredClone(this._items$.value)
@@ -33,12 +46,14 @@ export class CartSourceService {
   }
 
   fetch() {
-    this.http.get<CartItem[]>(`${environment.apiUrl}/api/cart-items`).subscribe((items) => {
-      this._items$.next(items)
-    })
+    this.http
+      .get<CartItem[]>(`${environment.apiUrl}/api/cart-items`)
+      .subscribe((items) => {
+        this._items$.next(items)
+      })
   }
 
-  isEmpty(): boolean {  
+  isEmpty(): boolean {
     return this._items$.value.length === 0
   }
 }

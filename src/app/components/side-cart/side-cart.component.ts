@@ -14,4 +14,8 @@ export class SideCartComponent {
     protected cartSrv: CartSourceService,
     protected vatSrv: VatService
   ) {}
+
+  removeItem(id: string) {
+    this.cartSrv.remove(id)
+  }
 }
