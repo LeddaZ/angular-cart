@@ -37,4 +37,8 @@ export class CartSourceService {
       this._items$.next(items)
     })
   }
+
+  isEmpty(): boolean {  
+    return this._items$.value.length === 0
+  }
 }
