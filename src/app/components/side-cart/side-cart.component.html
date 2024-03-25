@@ -1,7 +1,6 @@
 <div class="side-cart">
   <h4>Cart</h4>
   <ul class="list-group" id="items-list">
-    <p class="total">{{ getTotal() }}</p>
     <li class="list-group-item item" *ngFor="let item of items$ | async">
       <app-cart-item
         [item]="item"
