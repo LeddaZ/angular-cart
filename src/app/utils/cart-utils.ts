@@ -22,17 +22,16 @@ export function getPrice(price: number, vat: number) {
 }
 
 export function getTransportFee(weight: number) {
-  let transportFee = 0
-  if (weight > 2000) {
-    transportFee = 7
+  switch (true) {
+    case weight > 2000:
+      return 7
+    case weight > 5000:
+      return 15
+    case weight > 10000:
+      return 25
+    default:
+      return 0
   }
-  if (weight > 5000) {
-    transportFee = 15
-  }
-  if (weight > 10000) {
-    transportFee = 25
-  }
-  return transportFee
 }
 
 export function parseItem(item: CartItem, vat: number) {

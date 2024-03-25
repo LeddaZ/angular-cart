@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { CartSourceService } from '../../services/cart-source.service'
 import { VatService } from '../../services/vat.service'
+import { map } from 'rxjs'
 
 @Component({
   selector: 'app-side-cart',
@@ -17,5 +18,9 @@ export class SideCartComponent {
 
   removeItem(id: string) {
     this.cartSrv.remove(id)
+  }
+
+  getTotal(): number {
+    return this.items$.filter()
   }
 }
