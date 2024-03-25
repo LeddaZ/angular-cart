@@ -1,4 +1,4 @@
-import { CartItem } from './entities/cart-item.entity'
+import { CartItem } from '../entities/cart-item.entity'
 
 export function getVAT(country: string) {
   return country === 'IT' ? 0.22 : 0

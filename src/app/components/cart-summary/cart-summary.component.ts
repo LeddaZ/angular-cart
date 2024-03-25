@@ -6,7 +6,7 @@ import {
   SimpleChanges
 } from '@angular/core'
 import { CartItem } from '../../entities/cart-item.entity'
-import { getTransportFee, parseItem } from '../../cart-utils'
+import { getTransportFee, parseItem } from '../../utils/cart-utils'
 
 @Component({
   selector: 'app-cart-summary',

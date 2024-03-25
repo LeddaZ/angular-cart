@@ -1,6 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Product } from '../../entities/product.entity'
 import { CartSourceService } from '../../services/cart-source.service'
+import {
+  getDiscountedPrice,
+  getVAT,
+  getVatAmount
+} from '../../utils/cart-utils'
 
 @Component({
   selector: 'app-item-card',
@@ -27,5 +32,11 @@ export class ItemCardComponent {
     } else {
       this.invalid = false
     }
+  }
+
+  getFinalPrice(price: number, discount: number) {
+    return (
+      getDiscountedPrice(price, discount) + getVatAmount(price, getVAT('IT'))
+    )
   }
 }

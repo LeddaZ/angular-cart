@@ -2,7 +2,9 @@
   <div class="card-body">
     <h5 class="card-title">{{ product.name }}</h5>
     <h6 class="card-subtitle mb-2">
-      {{ product.netPrice | currency }}
+      {{
+        getFinalPrice(this.product.netPrice, this.product.discount) | currency
+      }}
     </h6>
     <p class="card-text">{{ product.description }}</p>
     <a href="#" class="btn btn-link" id="details">Details</a>

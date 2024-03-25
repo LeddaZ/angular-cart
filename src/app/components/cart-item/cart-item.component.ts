@@ -10,7 +10,7 @@ import {
   getDiscountAmount,
   getDiscountedPrice,
   getPrice
-} from '../../cart-utils'
+} from '../../utils/cart-utils'
 
 @Component({
   selector: 'app-cart-item',
